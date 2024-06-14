@@ -1,0 +1,17 @@
+// Measure the speed
+        long averageTime = 0;
+        for (int i = 0; i < 10; i++) {
+            long totalTime = 0;
+            for (int j = 0; j < 100; j++) {
+                long startTime = System.nanoTime();
+                Solution obj = new Solution();
+                // If the data structure uses an array implementation, use code line 9. If the data structure uses a linkedlist implementation, use code line 10.
+                // int[] res = obj.dijkstra(V, adj, S);
+                // LinkedList<Integer> res = obj.dijkstra(V, adj, S);
+                long endTime = System.nanoTime();
+                totalTime += endTime - startTime;
+            }
+
+            // Calculate the average time
+            averageTime = totalTime / 100;
+            System.out.println("Run " + (i + 1) + ": Average time: " + averageTime + " nanoseconds");

@@ -1,0 +1,52 @@
+        static class Solution {
+            int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S) {
+                //Create an ArrayList to store the nodes as a pair [distance, node]
+                ArrayList<Pair> list = new ArrayList<>();
+                int[] dist = new int[V];
+                int[] parent = new int[V];
+
+                //Initialise distTo with an infinite number to indicate that the nodes are not visited yet.
+                for (int i = 0; i < V; i++) {
+                    dist[i] = (int) (1e9);
+                    parent[i] = -1;
+                }
+
+                //Initialise the source
+                dist[S] = 0;
+                list.add(new Pair(0, S));
+
+                //Remove the minimum distance node first from the list and traverse for all its adjacent nodes.
+                while (list.size() != 0) {
+                    Pair minPair = findMin(list);
+                    int dis = minPair.distance;
+                    int node = minPair.node;
+                    list.remove(minPair);
+
+                    //Check if the previous distance is larger than the current or not
+                    for (int i = 0; i < adj.get(node).size(); i++) {
+                        int edgeWeight = adj.get(node).get(i).get(1);
+                        int adjNode = adj.get(node).get(i).get(0);
+
+                        //If it's smaller, replace or push into the list
+                        if (dis + edgeWeight < dist[adjNode]) {
+                            dist[adjNode] = dis + edgeWeight;
+                            parent[adjNode] = node;
+                            list.add(new Pair(dist[adjNode], adjNode));
+                        }
+                    }
+                }
+                //Return the list containing the shortest distances from source to all the nodes
+                return dist;
+            }
+
+            // findMin used to find the pair within the arraylist that has the minimum distance, it iterates over the arraylist.
+            private static Pair findMin(ArrayList<Pair> list) {
+                Pair minPair = list.get(0);
+                for (Pair pair : list) {
+                    if (pair.distance < minPair.distance) {
+                        minPair = pair;
+                    }
+                }
+                return minPair;
+            }
+        }

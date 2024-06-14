@@ -1,0 +1,66 @@
+public class Solution {
+    LinkedList<Integer> parent;
+
+    static class Result {
+        LinkedList<Integer> dist;
+        LinkedList<Integer> parent;
+
+        public Result(LinkedList<Integer> dist, LinkedList<Integer> parent) {
+            this.dist = dist;
+            this.parent = parent;
+        }
+    }
+
+    public Solution.Result dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S) {
+        // Long initialMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+
+        //Create a LinkedList to store the nodes as a pair [distance, node]
+        PriorityQueue<Pair> pq = new PriorityQueue<Pair>((x, y) -> x.distance - y.distance);
+
+        // LinkedList to store the shortest distance from source to each of the vertex.
+        LinkedList<Integer> dist = new LinkedList<>();
+        LinkedList<Integer> parent = new LinkedList<>();
+
+        //Initialise distances with an infinite number to indicate that the nodes are not visited yet.
+        for (int i = 0; i < V; i++) {
+            dist.add((int) (1e9));
+            parent.add(-1);
+        }
+
+        //Initialise the source
+        dist.set(S, 0);
+        //Source will be the first to be pushed to the queue
+        pq.add(new Pair(0, S));
+
+        //Remove the minimum distance node first from the min-heap and traverse for all its adjacent nodes.
+        while (!pq.isEmpty()) {
+            Pair currentPair = pq.poll();
+            int dis = currentPair.distance;
+            int node = currentPair.node;
+
+            //Check if the previous distance is larger than the current or not
+            for (int i = 0; i < adj.get(node).size(); i++) {
+                int edgeWeight = adj.get(node).get(i).get(1);
+                int adjNode = adj.get(node).get(i).get(0);
+
+                //If it's smaller, replace the distance in the array and push it into the priority queue
+                if (dis + edgeWeight < dist.get(adjNode)) {
+                    dist.set(adjNode, dis + edgeWeight);
+                    parent.set(adjNode, node);
+                    pq.add(new Pair(dist.get(adjNode), adjNode));
+                }
+            }
+        }
+        //Return the list containing the shortest distances from source to all the nodes and the parent node
+        return new Result(dist, parent);
+    }
+}
+
+public class Pair {
+    int node;
+    int distance;
+    public Pair(int distance, int node) {
+        this.node = node;
+        this.distance = distance;
+    }
+}

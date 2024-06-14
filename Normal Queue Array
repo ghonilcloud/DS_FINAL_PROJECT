@@ -1,0 +1,36 @@
+static int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S) {
+
+        // Create a queue to store the nodes
+        ArrayDeque<Integer> q = new ArrayDeque<>();
+        int[] dist = new int[V];
+        int[] parent = new int[V];
+
+        // Initialise distTo with an infinite number to indicate that the nodes are not visited yet.
+        for (int i = 0; i < V; i++) {
+            dist[i] = (int) (1e9);
+            parent[i] = -1;
+        }
+
+        // Initialise the source
+        dist[S] = 0;
+        q.add(S);
+
+        // Process the nodes in the queue
+        while (!q.isEmpty()) {
+            int node = q.poll();
+            // Process all adjacent nodes of the current node
+            for (int i = 0; i < adj.get(node).size(); i++) {
+                int edgeWeight = adj.get(node).get(i).get(1);
+                int adjNode = adj.get(node).get(i).get(0);
+
+                // If a shorter path is found, update the distance and parent
+                if (dist[node] + edgeWeight < dist[adjNode]) {
+                    dist[adjNode] = dist[node] + edgeWeight;
+                    parent[adjNode] = node;
+                    q.add(adjNode);
+                }
+            }
+        }
+        // Return the list containing the shortest distances from source to all the nodes
+        return dist;
+    }

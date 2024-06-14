@@ -1,0 +1,636 @@
+public class Main {
+    public static void main(String[] args) throws IOException {
+        //number of vertices
+        int V = 24;
+        //number of edges
+        int E = 12;
+        //source vertex
+        int S = 0;
+
+        ArrayList<Integer> edge1to0 = new ArrayList<Integer>() {{
+            //(vertex, weight)
+            add(1);
+            add(1);
+        }};
+        ArrayList<Integer> edge2to0 = new ArrayList<Integer>() {{
+            add(2);
+            add(8);
+        }};
+        ArrayList<Integer> edge3to0 = new ArrayList<Integer>() {{
+            add(3);
+            add(1);
+        }};
+        ArrayList<Integer> edge0to1 = new ArrayList<Integer>() {{
+            add(0);
+            add(1);
+        }};
+        ArrayList<Integer> edge2to1 = new ArrayList<Integer>() {{
+            add(2);
+            add(5);
+        }};
+        ArrayList<Integer> edge4to1 = new ArrayList<Integer>() {{
+            add(4);
+            add(1);
+        }};
+        ArrayList<Integer> edge1to2 = new ArrayList<Integer>() {{
+            add(1);
+            add(5);
+        }};
+        ArrayList<Integer> edge0to2 = new ArrayList<Integer>() {{
+            add(0);
+            add(8);
+        }};
+        ArrayList<Integer> edge3to2 = new ArrayList<Integer>() {{
+            add(3);
+            add(5);
+        }};
+        ArrayList<Integer> edge4to2 = new ArrayList<Integer>() {{
+            add(4);
+            add(3);
+        }};
+        ArrayList<Integer> edge5to2 = new ArrayList<Integer>() {{
+            add(5);
+            add(1);
+        }};
+        ArrayList<Integer> edge5to6 = new ArrayList<Integer>() {{
+            add(5);
+            add(3);
+        }};
+        ArrayList<Integer> edge6to2 = new ArrayList<Integer>() {{
+            add(6);
+            add(1);
+        }};
+        ArrayList<Integer> edge4to5 = new ArrayList<Integer>() {{
+            add(4);
+            add(2);
+        }};
+        ArrayList<Integer> edge6to5 = new ArrayList<Integer>() {{
+            add(6);
+            add(3);
+        }};
+        ArrayList<Integer> edge0to3 = new ArrayList<Integer>() {{
+            add(0);
+            add(1);
+        }};
+        ArrayList<Integer> edge2to3 = new ArrayList<Integer>() {{
+            add(2);
+            add(5);
+        }};
+        ArrayList<Integer> edge6to3 = new ArrayList<Integer>() {{
+            add(6);
+            add(1);
+        }};
+        ArrayList<Integer> edge1to4 = new ArrayList<Integer>() {{
+            add(1);
+            add(1);
+        }};
+        ArrayList<Integer> edge2to4 = new ArrayList<Integer>() {{
+            add(2);
+            add(3);
+        }};
+        ArrayList<Integer> edge5to4 = new ArrayList<Integer>() {{
+            add(5);
+            add(2);
+        }};
+        ArrayList<Integer> edge7to4 = new ArrayList<Integer>() {{
+            add(7);
+            add(2);
+        }};
+        ArrayList<Integer> edge2to5 = new ArrayList<Integer>() {{
+            add(2);
+            add(1);
+        }};
+        ArrayList<Integer> edge2to6 = new ArrayList<Integer>() {{
+            add(2);
+            add(1);
+        }};
+        ArrayList<Integer> edge3to6 = new ArrayList<Integer>() {{
+            add(3);
+            add(1);
+        }};
+        ArrayList<Integer> edge7to5 = new ArrayList<Integer>() {{
+            add(6);
+            add(4);
+        }};
+        ArrayList<Integer> edge7to6 = new ArrayList<Integer>() {{
+            add(7);
+            add(1);
+        }};
+        ArrayList<Integer> edge4to7 = new ArrayList<Integer>() {{
+            add(4);
+            add(2);
+        }};
+        ArrayList<Integer> edge5to7 = new ArrayList<Integer>() {{
+            add(5);
+            add(4);
+        }};
+        ArrayList<Integer> edge6to7 = new ArrayList<Integer>() {{
+            add(6);
+            add(1);
+        }};
+
+        // -------------------------------------------------------------------
+
+        ArrayList<Integer> edge7to8 = new ArrayList<Integer>() {{
+            add(7);
+            add(1);
+        }};
+        ArrayList<Integer> edge8to7 = new ArrayList<Integer>() {{
+            add(8);
+            add(1);
+        }};
+
+        // -------------------------------------------------------------------
+        ArrayList<Integer> edge1to0b = new ArrayList<Integer>() {{
+            //(vertex, weight)
+            add(9);
+            add(3);
+        }};
+        ArrayList<Integer> edge2to0b = new ArrayList<Integer>() {{
+            add(10);
+            add(6);
+        }};
+        ArrayList<Integer> edge3to0b = new ArrayList<Integer>() {{
+            add(11);
+            add(5);
+        }};
+        ArrayList<Integer> edge0to1b = new ArrayList<Integer>() {{
+            add(8);
+            add(3);
+        }};
+        ArrayList<Integer> edge2to1b = new ArrayList<Integer>() {{
+            add(10);
+            add(1);
+        }};
+        ArrayList<Integer> edge4to1b = new ArrayList<Integer>() {{
+            add(12);
+            add(2);
+        }};
+        ArrayList<Integer> edge1to2b = new ArrayList<Integer>() {{
+            add(9);
+            add(1);
+        }};
+        ArrayList<Integer> edge0to2b = new ArrayList<Integer>() {{
+            add(8);
+            add(6);
+        }};
+        ArrayList<Integer> edge3to2b = new ArrayList<Integer>() {{
+            add(11);
+            add(1);
+        }};
+        ArrayList<Integer> edge4to2b = new ArrayList<Integer>() {{
+            add(12);
+            add(1);
+        }};
+        ArrayList<Integer> edge5to2b = new ArrayList<Integer>() {{
+            add(13);
+            add(1);
+        }};
+        ArrayList<Integer> edge6to2b = new ArrayList<Integer>() {{
+            add(14);
+            add(1);
+        }};
+        ArrayList<Integer> edge0to3b = new ArrayList<Integer>() {{
+            add(8);
+            add(5);
+        }};
+        ArrayList<Integer> edge2to3b = new ArrayList<Integer>() {{
+            add(10);
+            add(1);
+        }};
+        ArrayList<Integer> edge6to3b = new ArrayList<Integer>() {{
+            add(14);
+            add(1);
+        }};
+        ArrayList<Integer> edge1to4b = new ArrayList<Integer>() {{
+            add(9);
+            add(2);
+        }};
+        ArrayList<Integer> edge2to4b = new ArrayList<Integer>() {{
+            add(10);
+            add(1);
+        }};
+        ArrayList<Integer> edge7to4b = new ArrayList<Integer>() {{
+            add(15);
+            add(1);
+        }};
+        ArrayList<Integer> edge2to5b = new ArrayList<Integer>() {{
+            add(10);
+            add(1);
+        }};
+        ArrayList<Integer> edge2to6b = new ArrayList<Integer>() {{
+            add(10);
+            add(1);
+        }};
+        ArrayList<Integer> edge3to6b = new ArrayList<Integer>() {{
+            add(11);
+            add(1);
+        }};
+        ArrayList<Integer> edge7to6b = new ArrayList<Integer>() {{
+            add(15);
+            add(3);
+        }};
+        ArrayList<Integer> edge4to7b = new ArrayList<Integer>() {{
+            add(12);
+            add(1);
+        }};
+        ArrayList<Integer> edge6to7b = new ArrayList<Integer>() {{
+            add(14);
+            add(3);
+        }};
+        ArrayList<Integer> edge5to7b = new ArrayList<Integer>() {{
+            add(13);
+            add(2);
+        }};
+        ArrayList<Integer> edge5to6b = new ArrayList<Integer>() {{
+            add(13);
+            add(8);
+        }};
+        ArrayList<Integer> edge6to5b = new ArrayList<Integer>() {{
+            add(14);
+            add(8);
+        }};
+        ArrayList<Integer> edge5to4b = new ArrayList<Integer>() {{
+            add(13);
+            add(1);
+        }};
+        ArrayList<Integer> edge4to5b = new ArrayList<Integer>() {{
+            add(12);
+            add(1);
+        }};
+        ArrayList<Integer> edge7to5b = new ArrayList<Integer>() {{
+            add(15);
+            add(4);
+        }};
+
+        ArrayList<Integer> edge16to15 = new ArrayList<Integer>() {{
+            add(16);
+            add(4);
+        }};
+
+
+        // -------------------------------------------------------------------
+
+        ArrayList<Integer> edge15to16 = new ArrayList<Integer>() {{
+            add(15);
+            add(4);
+        }};
+
+        ArrayList<Integer> edge1to0c = new ArrayList<Integer>() {{
+            //(vertex, weight)
+            add(17);
+            add(3);
+        }};
+        ArrayList<Integer> edge2to0c = new ArrayList<Integer>() {{
+            add(18);
+            add(1);
+        }};
+        ArrayList<Integer> edge3to0c = new ArrayList<Integer>() {{
+            add(19);
+            add(1);
+        }};
+        ArrayList<Integer> edge0to1c = new ArrayList<Integer>() {{
+            add(16);
+            add(3);
+        }};
+        ArrayList<Integer> edge2to1c = new ArrayList<Integer>() {{
+            add(18);
+            add(1);
+        }};
+        ArrayList<Integer> edge4to1c = new ArrayList<Integer>() {{
+            add(20);
+            add(1);
+        }};
+        ArrayList<Integer> edge1to2c = new ArrayList<Integer>() {{
+            add(17);
+            add(1);
+        }};
+        ArrayList<Integer> edge0to2c = new ArrayList<Integer>() {{
+            add(16);
+            add(1);
+        }};
+        ArrayList<Integer> edge3to2c = new ArrayList<Integer>() {{
+            add(19);
+            add(5);
+        }};
+        ArrayList<Integer> edge4to2c = new ArrayList<Integer>() {{
+            add(20);
+            add(1);
+        }};
+        ArrayList<Integer> edge5to2c = new ArrayList<Integer>() {{
+            add(21);
+            add(2);
+        }};
+        ArrayList<Integer> edge6to2c = new ArrayList<Integer>() {{
+            add(22);
+            add(1);
+        }};
+        ArrayList<Integer> edge0to3c = new ArrayList<Integer>() {{
+            add(16);
+            add(1);
+        }};
+        ArrayList<Integer> edge2to3c = new ArrayList<Integer>() {{
+            add(18);
+            add(5);
+        }};
+        ArrayList<Integer> edge6to3c = new ArrayList<Integer>() {{
+            add(22);
+            add(1);
+        }};
+        ArrayList<Integer> edge1to4c = new ArrayList<Integer>() {{
+            add(17);
+            add(1);
+        }};
+        ArrayList<Integer> edge2to4c = new ArrayList<Integer>() {{
+            add(18);
+            add(1);
+        }};
+        ArrayList<Integer> edge7to4c = new ArrayList<Integer>() {{
+            add(23);
+            add(7);
+        }};
+        ArrayList<Integer> edge2to5c = new ArrayList<Integer>() {{
+            add(18);
+            add(2);
+        }};
+        ArrayList<Integer> edge2to6c = new ArrayList<Integer>() {{
+            add(18);
+            add(1);
+        }};
+        ArrayList<Integer> edge3to6c = new ArrayList<Integer>() {{
+            add(19);
+            add(1);
+        }};
+        ArrayList<Integer> edge7to6c = new ArrayList<Integer>() {{
+            add(23);
+            add(1);
+        }};
+        ArrayList<Integer> edge4to7c = new ArrayList<Integer>() {{
+            add(20);
+            add(7);
+        }};
+        ArrayList<Integer> edge6to7c = new ArrayList<Integer>() {{
+            add(22);
+            add(1);
+        }};
+        ArrayList<Integer> edge5to6c = new ArrayList<Integer>() {{
+            add(5);
+            add(2);
+        }};
+        ArrayList<Integer> edge6to5c = new ArrayList<Integer>() {{
+            add(6);
+            add(2);
+        }};
+        ArrayList<Integer> edge5to4c = new ArrayList<Integer>() {{
+            add(5);
+            add(3);
+        }};
+        ArrayList<Integer> edge4to5c = new ArrayList<Integer>() {{
+            add(4);
+            add(3);
+        }};
+        ArrayList<Integer> edge7to5c = new ArrayList<Integer>() {{
+            add(7);
+            add(3);
+        }};
+        ArrayList<Integer> edge5to7c = new ArrayList<Integer>() {{
+            add(5);
+            add(3);
+        }};
+
+        // -----------------------------------------------------------------------------
+        //Represent Adjacency List
+        ArrayList<ArrayList<Integer>> inter0 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge1to0);
+                add(edge2to0);
+                add(edge3to0);
+            }
+        };
+
+        ArrayList<ArrayList<Integer>> inter1 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge0to1);
+                add(edge2to1);
+                add(edge4to1);
+            }
+        };
+
+        ArrayList<ArrayList<Integer>> inter2 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge0to2);
+                add(edge1to2);
+                add(edge3to2);
+                add(edge4to2);
+                add(edge5to2);
+                add(edge6to2);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter3 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge0to3);
+                add(edge2to3);
+                add(edge6to3);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter4 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge1to4);
+                add(edge2to4);
+                add(edge5to4);
+                add(edge7to4);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter5 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge2to5);
+                add(edge4to5);
+                add(edge6to5);
+                add(edge7to5);
+
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter6 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge2to6);
+                add(edge3to6);
+                add(edge5to6);
+                add(edge7to6);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter7 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge4to7);
+                add(edge6to7);
+                add(edge8to7);
+                add(edge5to7);
+            }
+        };
+
+        // ---------------------------------------------------------------------------------------
+
+        ArrayList<ArrayList<Integer>> inter8 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge1to0b);
+                add(edge2to0b);
+                add(edge3to0b);
+                add(edge7to8);
+            }
+        };
+
+        ArrayList<ArrayList<Integer>> inter9 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge0to1b);
+                add(edge2to1b);
+                add(edge4to1b);
+            }
+        };
+
+        ArrayList<ArrayList<Integer>> inter10 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge0to2b);
+                add(edge1to2b);
+                add(edge3to2b);
+                add(edge4to2b);
+                add(edge5to2b);
+                add(edge6to2b);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter11 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge0to3b);
+                add(edge2to3b);
+                add(edge6to3b);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter12 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge1to4b);
+                add(edge2to4b);
+                add(edge7to4b);
+                add(edge5to4b);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter13 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge2to5b);
+                add(edge4to5b);
+                add(edge7to5b);
+                add(edge6to5b);
+
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter14 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge2to6b);
+                add(edge3to6b);
+                add(edge7to6b);
+                add(edge5to6b);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter15 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge4to7b);
+                add(edge6to7b);
+                add(edge5to7b);
+                add(edge16to15);
+            }
+        };
+
+        // ---------------------------------------------------------------------------------------
+
+        ArrayList<ArrayList<Integer>> inter16 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge1to0c);
+                add(edge2to0c);
+                add(edge3to0c);
+                add(edge15to16);
+            }
+        };
+
+        ArrayList<ArrayList<Integer>> inter17 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge0to1c);
+                add(edge2to1c);
+                add(edge4to1c);
+            }
+        };
+
+        ArrayList<ArrayList<Integer>> inter18 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge0to2c);
+                add(edge1to2c);
+                add(edge3to2c);
+                add(edge4to2c);
+                add(edge5to2c);
+                add(edge6to2c);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter19 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge0to3c);
+                add(edge2to3c);
+                add(edge6to3c);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter20 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge1to4c);
+                add(edge2to4c);
+                add(edge7to4c);
+                add(edge5to4c);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter21 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge2to5c);
+                add(edge4to5c);
+                add(edge6to5c);
+                add(edge7to5c);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter22 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge2to6c);
+                add(edge3to6c);
+                add(edge7to6c);
+                add(edge5to6c);
+            }
+        };
+        ArrayList<ArrayList<Integer>> inter23 = new ArrayList<ArrayList<Integer>>() {
+            {
+                add(edge4to7c);
+                add(edge5to7c);
+                add(edge6to7c);
+            }
+        };
+
+
+        ArrayList<ArrayList<ArrayList<Integer>>> adj = new ArrayList<ArrayList<ArrayList<Integer>>>() {
+            {
+                add(inter0); //represent vertex 0
+                add(inter1); //represent vertex 1
+                add(inter2); // represent vertex 2
+                add(inter3); // represent vertex 3
+                add(inter4);
+                add(inter5);
+                add(inter6);
+                add(inter7);
+                add(inter8);
+                add(inter9);
+                add(inter10);
+                add(inter11);
+                add(inter12);
+                add(inter13);
+                add(inter14);
+                add(inter15);
+                add(inter16);
+                add(inter17);
+                add(inter18);
+                add(inter19);
+                add(inter20);
+                add(inter21);
+                add(inter22);
+                add(inter23);
+            }
+        };

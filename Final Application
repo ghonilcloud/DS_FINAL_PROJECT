@@ -1,0 +1,243 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import java.util.Scanner;
+import org.graphstream.graph.Edge;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
+
+public class Main {
+    public static Graph exampleGraph() {
+        Graph g = new SingleGraph("example");
+        g.addNode("0").setAttribute("xy", 0, 0);
+        g.addNode("1").setAttribute("xy", 2, 2);
+        g.addNode("2").setAttribute("xy", 2, 0);
+        g.addNode("3").setAttribute("xy", 2, -2);
+        g.addNode("4").setAttribute("xy", 4, 2);
+        g.addNode("5").setAttribute("xy", 4, 0);
+        g.addNode("6").setAttribute("xy", 4, -2);
+        g.addNode("7").setAttribute("xy", 6, 0);
+
+        g.addNode("8").setAttribute("xy", 8, 0);
+        g.addNode("9").setAttribute("xy", 10,2);
+        g.addNode("10").setAttribute("xy", 10, 0);
+        g.addNode("11").setAttribute("xy", 10, -2);
+        g.addNode("12").setAttribute("xy", 12, 2);
+        g.addNode("13").setAttribute("xy", 12, 0);
+        g.addNode("14").setAttribute("xy", 12, -2);
+        g.addNode("15").setAttribute("xy", 14, 0);
+
+        g.addNode("16").setAttribute("xy", 0, -6);
+        g.addNode("17").setAttribute("xy", 2, -4);
+        g.addNode("18").setAttribute("xy", 2, -6);
+        g.addNode("19").setAttribute("xy", 2, -8);
+        g.addNode("20").setAttribute("xy", 4, -4);
+        g.addNode("21").setAttribute("xy", 4, -6);
+        g.addNode("22").setAttribute("xy", 4, -8);
+        g.addNode("23").setAttribute("xy", 6, -6);
+
+        g.addNode("24").setAttribute("xy", 8, -6);
+        g.addNode("25").setAttribute("xy", 10, -4);
+        g.addNode("26").setAttribute("xy", 10, -6);
+        g.addNode("27").setAttribute("xy", 10, -8);
+        g.addNode("28").setAttribute("xy", 12, -4);
+        g.addNode("29").setAttribute("xy", 12, -6);
+        g.addNode("30").setAttribute("xy", 12, -8);
+        g.addNode("31").setAttribute("xy", 14, -6);
+
+        g.addEdge("01", "0", "1").setAttribute("length", 1);
+        g.addEdge("02", "0", "2").setAttribute("length", 8);
+        g.addEdge("03", "0", "3").setAttribute("length", 1);
+        g.addEdge("12", "1", "2").setAttribute("length", 5);
+        g.addEdge("14", "1", "4").setAttribute("length", 1);
+        g.addEdge("23", "2", "3").setAttribute("length", 5);
+        g.addEdge("24", "2", "4").setAttribute("length", 3);
+        g.addEdge("25", "2", "5").setAttribute("length", 1);
+        g.addEdge("26", "2", "6").setAttribute("length", 1);
+        g.addEdge("36", "3", "6").setAttribute("length", 1);
+        g.addEdge("317", "3", "17").setAttribute("length", 1);
+        g.addEdge("45", "4", "5").setAttribute("length", 2);
+        g.addEdge("47", "4", "7").setAttribute("length", 2);
+        g.addEdge("56", "5", "6").setAttribute("length", 3);
+        g.addEdge("57", "5", "7").setAttribute("length", 4);
+        g.addEdge("67", "6", "7").setAttribute("length", 1);
+        g.addEdge("78", "7", "8").setAttribute("length", 1);
+        g.addEdge("89", "8", "9").setAttribute("length", 3);
+        g.addEdge("810", "8", "10").setAttribute("length", 6);
+        g.addEdge("811", "8", "11").setAttribute("length", 5);
+        g.addEdge("910", "9", "10").setAttribute("length", 2);
+        g.addEdge("912", "9", "12").setAttribute("length", 1);
+        g.addEdge("1011", "10", "11").setAttribute("length", 1);
+        g.addEdge("1012", "10", "12").setAttribute("length", 1);
+        g.addEdge("1013", "10", "13").setAttribute("length", 1);
+        g.addEdge("1014", "10", "14").setAttribute("length", 1);
+        g.addEdge("1114", "11", "14").setAttribute("length",    4);
+        g.addEdge("1213", "12", "13").setAttribute("length", 1);
+        g.addEdge("1215", "12", "15").setAttribute("length", 1);
+        g.addEdge("1314", "13", "14").setAttribute("length", 8);
+        g.addEdge("1315", "13", "15").setAttribute("length", 2);
+        g.addEdge("1415", "14", "15").setAttribute("length", 3);
+        g.addEdge("1428", "14", "28").setAttribute("length", 1);
+        g.addEdge("1617", "16", "17").setAttribute("length", 3);
+        g.addEdge("1618", "16", "18").setAttribute("length", 1);
+        g.addEdge("1619", "16", "19").setAttribute("length", 1);
+        g.addEdge("1718", "17", "18").setAttribute("length", 1);
+        g.addEdge("1720", "17", "20").setAttribute("length", 3);
+        g.addEdge("1819", "18", "19").setAttribute("length", 5);
+        g.addEdge("1820", "18", "20").setAttribute("length", 1);
+        g.addEdge("1821", "18", "21").setAttribute("length", 2);
+        g.addEdge("1822", "18", "22").setAttribute("length", 1);
+        g.addEdge("1922", "19", "22").setAttribute("length", 1);
+        g.addEdge("2021", "20", "21").setAttribute("length", 3);
+        g.addEdge("2023", "20", "23").setAttribute("length", 7);
+        g.addEdge("2122", "21", "22").setAttribute("length", 2);
+        g.addEdge("2123", "21", "23").setAttribute("length", 3);
+        g.addEdge("2223", "22", "23").setAttribute("length", 1);
+        g.addEdge("2324", "23", "24").setAttribute("length", 4);
+
+        g.addEdge("2425", "24", "25").setAttribute("length", 5);
+        g.addEdge("2426", "24", "26").setAttribute("length", 1);
+        g.addEdge("2427", "24", "27").setAttribute("length", 5);
+        g.addEdge("2526", "25", "26").setAttribute("length", 1);
+        g.addEdge("2528", "25", "28").setAttribute("length", 1);
+        g.addEdge("2627", "26", "27").setAttribute("length", 5);
+        g.addEdge("2628", "26", "28").setAttribute("length", 4);
+        g.addEdge("2629", "26", "29").setAttribute("length", 4);
+        g.addEdge("2630", "26", "30").setAttribute("length", 4);
+        g.addEdge("2730", "27", "30").setAttribute("length", 1);
+        g.addEdge("2829", "28", "29").setAttribute("length", 1);
+        g.addEdge("2831", "28", "31").setAttribute("length", 1);
+        g.addEdge("2930", "29", "30").setAttribute("length", 2);
+        g.addEdge("2931", "29", "31").setAttribute("length", 3);
+        g.addEdge("3031", "30", "31").setAttribute("length", 4);
+
+
+        g.nodes().forEach(n -> n.setAttribute("label", n.getId()));
+        g.edges().forEach(e -> e.setAttribute("label", "" + (int) e.getNumber("length")));
+
+        g.setAttribute("ui.stylesheet", "node { fill-color: black; text-size: 30; size: 30px; text-color: white; } edge { fill-color: gray; text-size: 30; }");
+        g.setAttribute("ui.quality", "low");
+        g.setAttribute("ui.animate", true);
+        g.setAttribute("ui.animate.pause", false);
+        g.setAttribute("ui.layout.scaling", 2.0);
+        g.setAttribute("ui.layout", "forceatlas2");
+
+        return g;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the source node: ");
+        String sourceNodeId = scanner.next();
+
+        System.out.print("Enter the destination node: ");
+        String destinationNodeId = scanner.next();
+
+        // Set the UI package to swing
+        System.setProperty("org.graphstream.ui", "swing");
+        Graph g = exampleGraph();
+        g.display();
+
+        // Create an adjacency list representation of the graph
+        int V = g.getNodeCount();
+        ArrayList<ArrayList<ArrayList<Integer>>> adj = new ArrayList<>();
+        for (int i = 0; i < V; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < g.getEdgeCount(); i++) {
+            Edge e = g.getEdge(i);
+            int u = g.getNode(e.getNode0().getId()).getIndex();
+            int v = g.getNode(e.getNode1().getId()).getIndex();
+            int weight = (int) e.getNumber("length");
+            adj.get(u).add(new ArrayList<>(List.of(v, weight)));
+            adj.get(v).add(new ArrayList<>(List.of(u, weight)));
+        }
+
+        // Run the stack-based Dijkstra's algorithm
+        int[] dist = dijkstra(V, adj, g.getNode(sourceNodeId).getIndex());
+
+        // Print the lengths of all the shortest paths
+        for (int i = 0; i < V; i++) {
+            System.out.printf("%s->%s:%10d%n", sourceNodeId, g.getNode(i).getId(), dist[i]);
+        }
+
+        // Color in red all the nodes on the shortest path from A to B
+        int currentNode = g.getNode(destinationNodeId).getIndex();
+        while (currentNode!= g.getNode(sourceNodeId).getIndex()) {
+            Node node = g.getNode(currentNode);
+            node.setAttribute("ui.style", "fill-color: red; size: 30px; text-size: 30px;");
+            g.getNode(sourceNodeId).setAttribute("ui.style", "fill-color: red; size: 30px; text-size: 30px;");
+            currentNode = getParent(adj, dist, currentNode);
+        }
+
+        // Print the shortest path from A to B
+        currentNode = g.getNode(destinationNodeId).getIndex();
+        ArrayList<Node> path = new ArrayList<>();
+        while (currentNode!= g.getNode(sourceNodeId).getIndex()) {
+            path.add(g.getNode(currentNode));
+            currentNode = getParent(adj, dist, currentNode);
+        }
+
+        path.add(g.getNode(sourceNodeId));
+        Collections.reverse(path); // Add this line to reverse the path
+        for (int i = 0; i < path.size() - 1; i++) {
+            Node node1 = path.get(i);
+            Node node2 = path.get(i + 1);
+            String edgeId = node1.getId() + node2.getId();
+            Edge edge = g.getEdge(edgeId);
+            if (edge == null) {
+                edgeId = node2.getId() + node1.getId();
+                edge = g.getEdge(edgeId);
+            }
+            edge.setAttribute("ui.style", "fill-color: red;");
+        }
+        System.out.println(path);
+    }
+
+    static int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S) {
+        int[] stack = new int[V];
+        int top = -1;
+        int[] dist = new int[V];
+        int[] parent = new int[V];
+
+        for (int i = 0; i < V; i++) {
+            dist[i] = (int) (1e9);
+            parent[i] = -1;
+        }
+        dist[S] = 0;
+        stack[++top] = S;
+        while (top!= -1) {
+            int node = stack[top--];
+            for (int i = 0; i < adj.get(node).size(); i++) {
+                int edgeWeight = adj.get(node).get(i).get(1);
+                int adjNode = adj.get(node).get(i).get(0);
+
+                if (dist[node] + edgeWeight < dist[adjNode]) {
+                    dist[adjNode] = dist[node] + edgeWeight;
+                    parent[adjNode] = node;
+                    stack[++top] = adjNode;
+                }
+            }
+        }
+        return dist;
+    }
+
+    static int getParent(ArrayList<ArrayList<ArrayList<Integer>>> adj, int[] dist, int node) {
+        int minDist = (int) (1e9);
+        int parent = -1;
+
+        for (int i = 0; i < adj.get(node).size(); i++) {
+            int adjNode = adj.get(node).get(i).get(0);
+            int edgeWeight = adj.get(node).get(i).get(1);
+            if (dist[adjNode] + edgeWeight == dist[node]) {
+                if (dist[adjNode] < minDist) {
+                    minDist = dist[adjNode];
+                    parent = adjNode;
+                }
+            }
+        }
+        return parent;
+    }
+}

@@ -1,0 +1,48 @@
+class Pair {
+    int node;
+    int distance;
+    public Pair(int distance, int node) {
+        this.node = node;
+        this.distance = distance;
+    }
+}
+
+class Solution {
+    static int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S) {
+        //Create a priority queue to store the nodes as a pair [distance, node] (min-heap)
+        PriorityQueue<Pair> pq = new PriorityQueue<Pair>((x, y) -> x.distance - y.distance);
+        int[] dist = new int[V];
+        int[] parent = new int[V];
+
+        //Initialise distTo with an infinite number to indicate that the nodes are not visited yet.
+        for (int i = 0; i < V; i++) {
+            dist[i] = (int) (1e9);
+            parent[i] = -1;
+        }
+
+        //Initialise the source
+        dist[S] = 0;
+        pq.add(new Pair(0, S));
+
+        //Remove the minimum distance node first from the min-heap and traverse for all its adjacent nodes.
+        while (pq.size() != 0) {
+            int dis = pq.peek().distance;
+            int node = pq.peek().node;
+            pq.remove();
+
+            //Check if the previous distance is larger than the current or not
+            for (int i = 0; i < adj.get(node).size(); i++) {
+                int edgeWeight = adj.get(node).get(i).get(1);
+                int adjNode = adj.get(node).get(i).get(0);
+
+                //If it's smaller, replace or push into the queue
+                if (dis + edgeWeight < dist[adjNode]) {
+                    dist[adjNode] = dis + edgeWeight;
+                    parent[adjNode] = node;
+                    pq.add(new Pair(dist[adjNode], adjNode));
+                }
+            }
+        }
+    return dist;
+    }
+}
